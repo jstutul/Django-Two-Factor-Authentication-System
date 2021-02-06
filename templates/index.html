@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Register Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="page-wrapper bg-dark p-t-100 p-b-50">
+        <div class="wrapper wrapper--w900">
+            <div class="card card-6">
+                 {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <strong>{{ message }}</strong>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                    {% endfor %}
+                {% endif %}
+                <div class="card-heading">
+                    <h2 class="title">Registration  Page </h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" >{% csrf_token %}
+                        <div class="form-row">
+                            <div class="name">First name</div>
+                            <div class="value">
+                                <input class="input--style-6" type="text" name="first_name">
+                            </div>
+                        </div>
+                         <div class="form-row">
+                            <div class="name">Last name</div>
+                            <div class="value">
+                                <input class="input--style-6" type="text" name="last_name">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Email address</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="email" name="email" placeholder="example@email.com">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">City Name</div>
+                            <div class="value">
+                                <input class="input--style-6" type="text" name="city">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Fees</div>
+                            <div class="value">
+                                <input class="input--style-6" type="text" name="fees" value="20" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Purpose</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <textarea class="textarea--style-6" name="purpose" placeholder="purpose of your account"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer col-md-12">
+                            <button class="btn btn--radius-2 btn--blue-2 mx-4" type="submit">Register</button>
+                            <a class="btn btn-success float-right mx-4" href="{% url 'login' %}">Log in</a>
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="{% static 'js/global.js' %}"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->
